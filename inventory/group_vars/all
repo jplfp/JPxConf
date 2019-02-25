@@ -11,3 +11,7 @@
 # Adding SSH Key from the local machine to the hosts #
 inject_ssh_key: true
 ssh_local_key_path: "~/.ssh/id_rsa.pub"
+
+###  security.yml  ###
+disable_firewalld: true
+disable_selinux: true
