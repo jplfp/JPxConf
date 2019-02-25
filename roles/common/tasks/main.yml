@@ -1,2 +1,2 @@
 ---
-# tasks file for common
+- include: basic.yml

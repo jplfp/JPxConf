@@ -1,0 +1,5 @@
+---
+# Run the Provisioning part of JPxConf
+- name: Running JPxConf - Provisioning
+  import_playbook: provisioning.yml
+  tags: provisioning

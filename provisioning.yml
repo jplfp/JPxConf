@@ -1,0 +1,7 @@
+---
+# Playbook that defines the Provisioning part of JPxConf
+- name: Provisioning the hosts
+  hosts: common
+  roles:
+    - role: common
+      tags: common

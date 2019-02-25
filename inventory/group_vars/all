@@ -1,0 +1,13 @@
+---
+#Variables applicable to all host groups
+
+
+
+#####################################
+####  Variables for Common Role  ####
+#####################################
+
+###  basic.yml  ###
+# Adding SSH Key from the local machine to the hosts #
+inject_ssh_key: true
+ssh_local_key_path: "~/.ssh/id_rsa.pub"
