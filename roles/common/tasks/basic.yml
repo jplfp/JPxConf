@@ -3,7 +3,7 @@
 - name: Connectivity check
   ping:
 
-# Adding SSH Key from the local machine to the hosts when inject_ssh_key variable = yes
+# Adding SSH Key from the local machine to the hosts when inject_ssh_key variable is true
 - name: Adding the SSH Key
   authorized_key:
     user: root
