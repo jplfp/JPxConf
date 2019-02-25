@@ -10,7 +10,8 @@
     state: present
     key: "{{ lookup('file', ssh_local_key_path) }}"
   when: inject_ssh_key
-  
+  notify: Test SSH with Key
+ 
 # Setting the hostname on the hosts based on the inventory name
 - name: Setting the hostname
   hostname:

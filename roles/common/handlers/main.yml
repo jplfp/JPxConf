@@ -1,2 +1,4 @@
 ---
 # handlers file for common
+- name: Test SSH with Key
+  local_action: shell ssh root@{{ hostvars[inventory_hostname].ansible_host }}
