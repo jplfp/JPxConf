@@ -1,4 +1,4 @@
 ---
-# handlers file for common
+# Handler for basic.yml task "Adding the SSH Key"
 - name: Test SSH with Key
   local_action: shell ssh root@{{ hostvars[inventory_hostname].ansible_host }}
