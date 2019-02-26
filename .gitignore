@@ -1,2 +1,2 @@
 inventory/hosts
-site.retry
+*.retry
