@@ -1,8 +1,4 @@
 ---
-#Variables applicable to all host groups
-
-
-
 #####################################
 ####  Variables for Common Role  ####
 #####################################
@@ -12,6 +8,24 @@
 inject_ssh_key: true
 ssh_local_key_path: "~/.ssh/id_rsa.pub"
 
+
 ###  security.yml  ###
+# Stopping and disabling the firewalld service #
 disable_firewalld: true
+
+# Setting selinux to disabled state #
 disable_selinux: true
+
+
+###  networking.yml  ###
+# Enabling ipv4 forwarding #
+enable_ipv4_forwarding: true
+
+# Setting the DNS Servers #
+dns_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+
+# Setting the Proxy Server #
+enable_proxy: true
+proxy_server: http://192.168.1.86:3128

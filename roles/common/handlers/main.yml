@@ -1,4 +1,9 @@
 ---
 # Handler for basic.yml task "Adding the SSH Key"
-- name: Test SSH with Key
+- name: Testing SSH with Key
   local_action: shell ssh root@{{ hostvars[inventory_hostname].ansible_host }}
+
+# Handler for networking.yml task "Setting the DNS servers"
+- name: Testing network and DNS
+  uri:
+    url: http://www.google.com

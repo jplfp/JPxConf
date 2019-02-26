@@ -1,0 +1,41 @@
+---
+# Disabling NetworkManager service on the host
+- name: Stopping and disabling the networkmanager service
+  service:
+    name: NetworkManager
+    state: stopped
+    enabled: no
+
+# Enabling ipv4 forwarding when enable_ipv4_forwarding variable is true
+- name: Enabling ipv4 forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+  when: enable_ipv4_forwarding
+
+# Setting the DNS Servers on resolv.conf file
+- name: Setting the DNS servers
+  blockinfile:
+    block: "{{ lookup('template', 'resolv.conf.j2') }}"
+    path: "/etc/resolv.conf"
+    insertafter: EOF
+    backup: yes
+  notify: Testing network and DNS
+
+# Setting the Proxy Server on /etc/profile
+- name: Setting the proxy server
+  blockinfile:
+    block: "{{ lookup('template', 'profile.j2') }}"
+    path: "/etc/profile"
+    insertafter: EOF
+    backup: yes
+  when: enable_proxy
+  register: proxy_change
+
+# Rebooting the servers to apply the configuration only if proxy configuration changed
+- name: Rebooting the servers
+  reboot:
+  when: proxy_change.changed
