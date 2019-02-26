@@ -1,0 +1,129 @@
+[rhel-7-server-rpms] 
+name = rhel-7-server-rpms 
+baseurl = {{ custom_base_url }}
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-extras-rpms] 
+name = rhel-7-server-extras-rpms 
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-ha-for-rhel-7-server-rpms] 
+name = rhel-ha-for-rhel-7-server-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-rh-common-rpms] 
+name = rhel-7-server-rh-common-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rh-sso-7.3-for-rhel-7-server-rpms] 
+name = rh-sso-7.3-for-rhel-7-server-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-v2vwin-1-rpms] 
+name = rhel-7-server-v2vwin-1-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-server-rhscl-7-rpms] 
+name = rhel-server-rhscl-7-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+{% if (custom_repo_osp_version == 13) and ("'ospdirector' in group_names") %}
+[rhel-7-server-rhceph-3-tools-rpms] 
+name = rhel-7-server-rhceph-3-tools-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-openstack-13-optools-rpms] 
+name = rhel-7-server-openstack-13-optools-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rh-gluster-3-client-for-rhel-7-server-rpms] 
+name = rh-gluster-3-client-for-rhel-7-server-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-openstack-13-rpms] 
+name = rhel-7-server-openstack-13-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-rhceph-3-mon-rpms] 
+name = rhel-7-server-rhceph-3-mon-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-satellite-tools-6.3-rpms] 
+name = rhel-7-server-satellite-tools-6.3-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-rhceph-3-osd-rpms] 
+name = rhel-7-server-rhceph-3-osd-rpms 
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1         
+{% endif %}
+
+{% if (custom_repo_osp_version == 14) and ("'ospdirector' in group_names") %}
+[rhel-7-server-rhceph-3-tools-rpms] 
+name = rhel-7-server-rhceph-3-tools-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-openstack-14-optools-rpms] 
+name = rhel-7-server-openstack-14-optools-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rh-gluster-3-client-for-rhel-7-server-rpms] 
+name = rh-gluster-3-client-for-rhel-7-server-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-openstack-14-rpms] 
+name = rhel-7-server-openstack-14-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-rhceph-3-mon-rpms] 
+name = rhel-7-server-rhceph-3-mon-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-satellite-tools-6.3-rpms] 
+name = rhel-7-server-satellite-tools-6.3-rpms
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1 
+
+[rhel-7-server-rhceph-3-osd-rpms] 
+name = rhel-7-server-rhceph-3-osd-rpms 
+baseurl = {{ custom_base_url }} 
+gpgcheck = 0 
+enabled = 1         
+{% endif %}

@@ -2,3 +2,4 @@
 - include: basic.yml
 - include: security.yml
 - include: networking.yml
+- include: repositories.yml

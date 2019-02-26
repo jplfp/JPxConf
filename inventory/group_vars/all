@@ -29,3 +29,12 @@ dns_servers:
 # Setting the Proxy Server #
 enable_proxy: true
 proxy_server: http://192.168.1.86:3128
+
+
+###  repositories.yml  ###
+enable_rhel_custom_repo: true
+custom_base_url: http://192.168.1.86/repo
+custom_repo_osp_version: 14
+
+
+

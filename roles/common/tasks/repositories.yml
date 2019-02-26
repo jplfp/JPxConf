@@ -1,0 +1,17 @@
+---
+# Set Repository for Centos systems
+- name: Adding EPEL repository
+  yum_repository:
+    name: epel
+    description: EPEL repository
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+  notify: YUM clean metadata
+  when: ansible_distribution == 'CentOS'
+
+# Set Repository for RHEL systems
+- name: Adding custom local repository
+  template: src=customrepository.j2 dest=/etc/yum.repos.d/custom.repo
+  notify: YUM clean metadata
+  when: 
+    - ansible_distribution == 'RedHat'
+    - enable_rhel_custom_repo

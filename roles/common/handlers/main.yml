@@ -7,3 +7,9 @@
 - name: Testing network and DNS
   uri:
     url: http://www.google.com
+
+# Handler for repository.yml task "Adding EPEL repository"
+- name: YUM clean metadata
+  command: yum clean metadata
+  args:
+    warn: no
