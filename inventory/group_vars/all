@@ -71,7 +71,7 @@ full_pkgs_to_install:
   - bridge-utils 
 
 
-###  pkginstall.yml  ###
-# Installing selected packages #
+###  pkgconfigure.yml  ###
+# Copy over the NTP configuration #
 ntp_servers:
   - 192.168.1.86
