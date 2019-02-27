@@ -3,6 +3,12 @@
 - name: Connectivity check
   ping:
 
+# Checking that hosts are running a supported release
+- name: Check correct running release on hosts
+  assert:
+    that: "ansible_distribution_version >= '7.5' and (ansible_distribution == 'RedHat' or ansible_distribution == 'CentOS')"
+    msg: "Your host OS release is not RedHat 7.5 or CentOS 7.5"
+
 # Adding SSH Key from the local machine to the hosts when inject_ssh_key variable is true
 - name: Adding the SSH Key
   authorized_key:
