@@ -103,7 +103,6 @@ git clone https://github.com/jplfp/JPxConf.git
 <br/>
 
 
-
 ## Usage
 
 To use this tool you must define first some parameters related to the hosts and to the tool itself as instructed below.
