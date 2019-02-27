@@ -1,4 +1,9 @@
 ---
+# Run the Prechecks part of JPxConf
+- name: Running JPxConf - Prechecks
+  import_playbook: prechecks.yml
+  tags: prechecks
+
 # Run the Provisioning part of JPxConf
 - name: Running JPxConf - Provisioning
   import_playbook: provisioning.yml

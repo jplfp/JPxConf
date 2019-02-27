@@ -1,0 +1,6 @@
+---
+# Checking that the ansible version installed is correct
+- name: Checking ansible version on localhost
+  assert:
+        that: "ansible_version.full >= '2.7'"
+        msg: "Your ansible version is < 2.7. This playbook needs at least ansible 2.7 version"

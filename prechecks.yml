@@ -1,0 +1,7 @@
+---
+# Playbook that defines the Prechecks part of JPxConf
+- name: Running initial localhost prechecks
+  hosts: localhost
+  roles:
+    - role: prechecks
+      tags: prechecks
