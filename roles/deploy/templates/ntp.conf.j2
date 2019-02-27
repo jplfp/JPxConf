@@ -1,0 +1,11 @@
+{{ ansible_managed | comment }}
+{% for servers in ntp_servers %}
+server {{ servers }} iburst
+{% endfor %}            
+
+# Additional options
+restrict default nomodify notrap nopeer noquery
+restrict 127.0.0.1
+restrict ::1
+driftfile /var/lib/ntp/drift
+disable monitor

@@ -3,5 +3,5 @@
 - name: Provisioning the hosts
   hosts: common
   roles:
-    - role: common
-      tags: common
+    - role: provisioning
+      tags: provisioning

@@ -5,6 +5,7 @@
     name: epel
     description: EPEL repository
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    gpgcheck: no
   notify: YUM clean metadata
   when: ansible_distribution == 'CentOS'
 

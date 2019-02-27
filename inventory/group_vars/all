@@ -38,3 +38,40 @@ custom_repo_osp_version: 14
 
 
 
+#####################################
+####  Variables for Deploy Role  ####
+#####################################
+
+###  pkginstall.yml  ###
+# Installing selected packages #
+min_pkgs_to_install:
+  - screen
+  - ftp
+  - wget
+  - ntp
+  - nc
+  - iperf3
+  - tcpdump
+  - nmap
+  - httpd
+  - net-tools
+  - telnet
+
+# Installing additional full packages #
+full_pkgs_to_install:
+  - libvirt
+  - libvirt-python
+  - libvirt-client
+  - libguestfs-tools
+  - virt-install
+  - virt-viewer
+  - virt-manager
+  - qemu-kvm
+  - qemu-img
+  - bridge-utils 
+
+
+###  pkginstall.yml  ###
+# Installing selected packages #
+ntp_servers:
+  - 192.168.1.86

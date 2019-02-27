@@ -1,0 +1,7 @@
+---
+# Handler for pkgconfigure.yml task "Configuring the NTP service"
+- name: Restart NTP service
+  service:
+    name: ntpd
+    state: restarted
+    enabled: yes

@@ -1,0 +1,9 @@
+---
+# Playbook that defines the Deploy part of JPxConf
+- name: Deploying minimal hosts
+  hosts: 
+    - minimal
+    - full
+  roles:
+    - role: deploy
+      tags: deploy

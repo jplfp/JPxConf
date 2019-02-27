@@ -1,0 +1,14 @@
+---
+# Installing minimal packages defined on variable min_pkgs_to_install
+  - name: Installing minimal packages
+    yum:
+      name: "{{ min_pkgs_to_install }}"
+      state: present
+    when: "'minimal' in group_names"
+
+# Installing additional full packages defined on variable full_pkgs_to_install
+  - name: Installing additional full packages
+    yum:
+      name: "{{ full_pkgs_to_install }}"
+      state: present
+    when: "'full' in group_names"

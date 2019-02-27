@@ -1,0 +1,3 @@
+---
+- include: pkginstall.yml
+- include: pkgconfigure.yml

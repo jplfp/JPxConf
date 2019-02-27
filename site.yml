@@ -3,3 +3,8 @@
 - name: Running JPxConf - Provisioning
   import_playbook: provisioning.yml
   tags: provisioning
+
+# Run the Deploy part of JPxConf
+- name: Running JPxConf - Deploy
+  import_playbook: deploy.yml
+  tags: deploy

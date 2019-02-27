@@ -1,0 +1,6 @@
+---
+# Configuring the ntp service with the servers defined on variable ntp_servers
+- name: Copy over the NTP configuration
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  when: "'ntp' in min_pkgs_to_install"
+  notify: Restart NTP service
