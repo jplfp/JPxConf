@@ -14,11 +14,10 @@ This project aims to create an ansible based tool for auto provisioning and depl
 ## Contents
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Authors](#authors)
+- [Code of Conduct](#code-of-conduct)
 - [License](#license)
 
 <br/>
@@ -28,7 +27,7 @@ This project aims to create an ansible based tool for auto provisioning and depl
 
 ## Features
 
-### Provision
+### Provisioning
 #### Basic
 - Inject SSH Keys
 - Set the hostname
@@ -127,9 +126,9 @@ HOST1HOSTNAME
 ```
 
 As you can see we have multiple groups defined each one with its function:
-- The `common` group contains the hosts configuration and the tool will apply the [provisioning role tasks](#features) on them (unless otherwise configured on the variables file below)
-- The `minimal` group contains the hosts on which you want to deploy the [minimal packages](#features) (which are defined on the variables file below)
-- The `full` group contains the hosts on which you want to deploy the [full packages](#features) (which are defined on the variables file below)
+- The `common` group contains the hosts configuration and the tool will apply the [provisioning role tasks](#provisioning) on them (unless otherwise configured on the variables file below)
+- The `minimal` group contains the hosts on which you want to deploy the [minimal packages](#pkginstall) (which are defined on the variables file below)
+- The `full` group contains the hosts on which you want to deploy the [full packages](#pkginstall) (which are defined on the variables file below)
 
 <br/>
 
@@ -241,7 +240,7 @@ ansible-playbook -i inventory/hosts site.yml --tags=deploy
 ## Contributing
 
 This was a project born for personal use so some of the features you need probably aren't here yet. I will keep on trying to add new features and if you want to help out, contribute with ideas or tag issues please do it! :thumbsup:
-For more details check the [contributing file](CONTRIBUTING.MD)
+For more details check the [contributing file](CONTRIBUTING.md)
 
 <br/>
 <br/>
@@ -250,7 +249,7 @@ For more details check the [contributing file](CONTRIBUTING.MD)
 
 ## Authors
 
-- João Feteira - [Github](https://github.com/PurpleBooth)
+- João Feteira - [Github](https://github.com/jplfp)
 - [contributors](https://github.com/jplfp/JPxConf/graphs/contributors) who participated in this project.
 
 <br/>
@@ -258,7 +257,7 @@ For more details check the [contributing file](CONTRIBUTING.MD)
 
 
 ## Code of Conduct
-Check the [code of conduct](CODE_OF_CONDUCT.MD)
+Check the [code of conduct](CODE_OF_CONDUCT.md)
 
 <br/>
 <br/>
