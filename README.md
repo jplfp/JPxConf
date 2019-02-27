@@ -1,4 +1,4 @@
-# Project JPxConf
+# Project JPxConf ![GitHub version](https://img.shields.io/github/release/jplfp/JPxConf.svg)
 
 This project aims to create an ansible based tool for auto provisioning and deploying of VMs/Baremetals on different environments:
 
