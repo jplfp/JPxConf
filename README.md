@@ -171,8 +171,13 @@ proxy_server: http://PROXYSERVERIP:PORT
 
 
 ###  repositories.yml  ###
+# Test connectivity to the custom Repository for RHEL systems #
 enable_rhel_custom_repo: true
-custom_base_url: http://REPOSITORYSERVERIP:PORT/PATH
+custom_repo_ip: REPOSITORYSERVERIP
+custom_repo_port: REPOSITORYSERVERPORT
+
+# Set Repository for RHEL systems #
+custom_base_url: http://{{custom_repo_ip}}:{{custom_repo_port}}/repo
 custom_repo_osp_version: 14
 
 
