@@ -9,10 +9,23 @@
   notify: YUM clean metadata
   when: ansible_distribution == 'CentOS'
 
-# Set Repository for RHEL systems
+# Test connectivity to the custom Repository for RHEL systems
+- name: Testing connectivity to custom local repository
+  wait_for:
+    host: "{{ custom_repo_ip }}"
+    port: "{{ custom_repo_port }}"
+    timeout: 10
+    msg: "There is no connectivity to the custom local repository"
+  register: custom_repo_result
+  when: 
+    - ansible_distribution == 'RedHat'
+    - enable_rhel_custom_repo
+
+    # Set Repository for RHEL systems if connectivity to the custom repository is working
 - name: Adding custom local repository
   template: src=customrepository.j2 dest=/etc/yum.repos.d/custom.repo
   notify: YUM clean metadata
   when: 
     - ansible_distribution == 'RedHat'
     - enable_rhel_custom_repo
+    - custom_repo_result is success

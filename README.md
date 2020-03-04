@@ -86,7 +86,7 @@ If you need to install git just run `yum install git` on a Centos/RHEL system or
 
 
 - A set of hosts on which you want to run the tool with the following:
-  - root user access with password
+  - root user access with password or normal user access and ansible performs the privlege escalation (both with or without passwordless login (sshkey))
   - Centos or Redhat Operating Systems (For now only version 7.5 was tested)
 <br/>
 <br/>
@@ -114,7 +114,8 @@ Hosts File Example:
 # Provisioning role
 [common]
 HOST1HOSTNAME ansible_host=HOST1IP ansible_password=HOST1PASSWORD
-HOST2HOSTNAME ansible_host=HOST2IP ansible_password=HOST2PASSWORD
+HOST2HOSTNAME ansible_host=HOST2IP ansible_password=NONROOTHOST2PASSWORD ansible_user=NONROOTHOST2USER ansible_become=yes ansible_become_method=su
+HOST3HOSTNAME ansible_host=HOST3IP ansible_ssh_private_key_file=PATHTOPRIVATEKEY
 
 # Deploy role
 [minimal:children]
@@ -122,13 +123,19 @@ full
 HOST1HOSTNAME
 
 [full]
-HOST1HOSTNAME
+HOST2HOSTNAME
+HOST3HOSTNAME
 ```
 
 As you can see we have multiple groups defined each one with its function:
 - The `common` group contains the hosts configuration and the tool will apply the [provisioning role tasks](#provisioning) on them (unless otherwise configured on the variables file below)
 - The `minimal` group contains the hosts on which you want to deploy the [minimal packages](#pkginstall) (which are defined on the variables file below)
-- The `full` group contains the hosts on which you want to deploy the [full packages](#pkginstall) (which are defined on the variables file below)
+- The `full` group contains the hosts on which you want to deploy the [full packages](#pkginstall) in addition to the minimal packages (which are defined on the variables file below)
+
+Also two examples are provided for user connection:
+- HOST1 assumes user=root and password login
+- HOST2 assumes user=nonrootuser and password login (can be passwordless also). In this case you should run the playbook with --ask-become-pass so that the root password is prompted and does not get stored on the bash command history. Ansible takes cares of the privilege elevation
+- HOST3 assumes user=root (you can also define other user) and passwordless login (with sshkey on the specified path. if not defined ~/.ssh/id_rsa is used)
 
 <br/>
 
@@ -171,8 +178,13 @@ proxy_server: http://PROXYSERVERIP:PORT
 
 
 ###  repositories.yml  ###
+# Test connectivity to the custom Repository for RHEL systems #
 enable_rhel_custom_repo: true
-custom_base_url: http://REPOSITORYSERVERIP:PORT/PATH
+custom_repo_ip: REPOSITORYSERVERIP
+custom_repo_port: REPOSITORYSERVERPORT
+
+# Set Repository for RHEL systems #
+custom_base_url: http://{{custom_repo_ip}}:{{custom_repo_port}}/repo
 custom_repo_osp_version: 14
 
 
